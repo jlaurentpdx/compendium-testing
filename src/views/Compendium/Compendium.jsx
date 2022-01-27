@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import Controls from '../../components/Controls/Controls';
 import { fetchHolidays } from '../../services/holidays';
+
+import Controls from '../../components/Controls/Controls';
+import HolidaysList from '../../components/HolidaysList/HolidaysList';
 
 export default function Compendium() {
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ export default function Compendium() {
     const fetchData = async () => {
       const data = await fetchHolidays();
       let addId = 0;
-      data.forEach((item) => {
+      data.map((item) => {
         item.id = addId;
         addId++;
       });
@@ -34,19 +36,7 @@ export default function Compendium() {
   return (
     <div>
       <Controls {...{ query, setQuery, handleSearch }} />
-      {filteredHolidays.length === 0
-        ? holidays.map((holiday) => (
-            <div key={holiday.id}>
-              <h1>{holiday.name}</h1>
-              <h2>{holiday.date}</h2>
-            </div>
-          ))
-        : filteredHolidays.map((holiday) => (
-            <div key={holiday.id}>
-              <h1>{holiday.name}</h1>
-              <h2>{holiday.date}</h2>
-            </div>
-          ))}
+      <HolidaysList {...{ holidays, filteredHolidays }} />
     </div>
   );
 }

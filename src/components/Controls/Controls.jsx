@@ -1,4 +1,4 @@
-export default function Controls(query, setQuery, handleSearch) {
+export default function Controls({ query, setQuery, handleSearch }) {
   return (
     <div>
       <input
