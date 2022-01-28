@@ -1,6 +1,8 @@
+import styles from './Controls.css';
+
 export default function Controls({ query, setQuery, handleSearch }) {
   return (
-    <div>
+    <section className={styles.controls}>
       <input
         type="text"
         placeholder="search by holiday name"
@@ -8,6 +10,6 @@ export default function Controls({ query, setQuery, handleSearch }) {
         onChange={(e) => setQuery(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-    </div>
+    </section>
   );
 }

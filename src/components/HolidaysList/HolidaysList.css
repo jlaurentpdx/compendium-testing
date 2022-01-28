@@ -10,12 +10,13 @@
   justify-content: center;
   text-align: center;
 
-  border: 1px solid black;
+  border: 2px outset grey;
   margin: 10px;
+  padding: 1px 2px;
 
   height: 20vh;
   width: 20vw;
-  max-width: 300px;
   min-width: 200px;
+  max-width: 300px;
   word-wrap: normal;
 }
