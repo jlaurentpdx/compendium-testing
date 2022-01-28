@@ -1,0 +1,21 @@
+.section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border: 1px solid black;
+  margin: 10px;
+
+  height: 20vh;
+  width: 20vw;
+  max-width: 300px;
+  min-width: 200px;
+  word-wrap: normal;
+}

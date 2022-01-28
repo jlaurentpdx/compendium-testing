@@ -26,7 +26,7 @@ test('Compendium renders a button', async () => {
   expect(button).toBeInTheDocument();
 });
 
-test('Compendium renders all holiday headings', async () => {
+test('Compendium renders a default list of headings', async () => {
   render(<Compendium />);
 
   await waitForElementToBeRemoved(() => screen.getByText(/please/i));

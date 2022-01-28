@@ -20,10 +20,8 @@ export default function Compendium() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchHolidays();
-      let addId = 0;
-      data.map((item) => {
-        item.id = addId;
-        addId++;
+      data.map((item, index) => {
+        item.id = index;
       });
       setHolidays(data);
       setLoading(false);
@@ -31,7 +29,7 @@ export default function Compendium() {
     fetchData();
   }, []);
 
-  if (loading) return <h1>Please wait...</h1>;
+  if (loading) return <p>Please wait...</p>;
 
   return (
     <>
