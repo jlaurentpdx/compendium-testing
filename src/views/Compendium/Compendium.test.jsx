@@ -25,3 +25,11 @@ test('Compendium renders a button', async () => {
   const button = await screen.findByRole('button', { name: /search/i });
   expect(button).toBeInTheDocument();
 });
+
+test('Compendium renders all holiday headings', async () => {
+  render(<Compendium />);
+
+  await waitForElementToBeRemoved(() => screen.getByText(/please/i));
+  const headings = await screen.findAllByRole('heading');
+  expect(headings).toHaveLength(26);
+});

@@ -34,9 +34,9 @@ export default function Compendium() {
   if (loading) return <h1>Please wait...</h1>;
 
   return (
-    <div>
+    <>
       <Controls {...{ query, setQuery, handleSearch }} />
       <HolidaysList {...{ holidays, filteredHolidays }} />
-    </div>
+    </>
   );
 }
