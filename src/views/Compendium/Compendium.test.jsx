@@ -18,3 +18,10 @@ test('Compendium renders a search bar', async () => {
   const search = await screen.findByRole('textbox');
   expect(search).toBeInTheDocument();
 });
+
+test('Compendium renders a button', async () => {
+  render(<Compendium />);
+
+  const button = await screen.findByRole('button', { name: /search/i });
+  expect(button).toBeInTheDocument();
+});
