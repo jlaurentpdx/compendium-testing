@@ -10,7 +10,8 @@ export default function Compendium() {
   const [filteredHolidays, setFilteredHolidays] = useState([]);
   const [query, setQuery] = useState('');
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     const search = holidays.filter((holiday) =>
       holiday.name.toLowerCase().includes(query.toLowerCase())
     );
@@ -20,9 +21,7 @@ export default function Compendium() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchHolidays();
-      data.map((item, index) => {
-        item.id = index;
-      });
+      data.map((item, index) => (item.id = `${item.name}-${index}`));
       setHolidays(data);
       setLoading(false);
     };
