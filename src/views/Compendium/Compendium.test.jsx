@@ -29,7 +29,9 @@ test('Compendium renders a button', async () => {
 test('Compendium renders a default list of headings', async () => {
   render(<Compendium />);
 
+  const headingsCount = 24;
   await waitForElementToBeRemoved(() => screen.getByText(/please/i));
   const headings = await screen.findAllByRole('heading');
-  expect(headings).toHaveLength(26);
+
+  expect(headings).toHaveLength(headingsCount);
 });

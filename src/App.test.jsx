@@ -20,7 +20,7 @@ test('App should render text from a header', async () => {
 test('should display a list of all holidays when search returns an empty value', async () => {
   render(<App />);
 
-  const headingsCount = 27;
+  const headingsCount = 25;
   const button = await screen.findByRole('button', { name: /search/i });
   userEvent.click(button);
   const headings = await screen.findAllByRole('heading');
