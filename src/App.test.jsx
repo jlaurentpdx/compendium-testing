@@ -20,18 +20,18 @@ test('App should render text from a header', async () => {
 test('should display a list of all holidays when search returns an empty value', async () => {
   render(<App />);
 
-  const expectedHeadingsCount = 27;
+  const headingsCount = 27;
   const button = await screen.findByRole('button', { name: /search/i });
   userEvent.click(button);
   const headings = await screen.findAllByRole('heading');
 
-  expect(headings).toHaveLength(expectedHeadingsCount);
+  expect(headings).toHaveLength(headingsCount);
 });
 
 test('should display a single holiday when only one match is returned ', async () => {
   render(<App />);
 
-  const expectedHeadingsCount = 3;
+  const headingsCount = 3;
   const search = await screen.findByRole('textbox', {
     name: /enter holiday name/i,
   });
@@ -40,13 +40,13 @@ test('should display a single holiday when only one match is returned ', async (
   userEvent.click(button);
   const headings = await screen.findAllByRole('heading');
 
-  expect(headings).toHaveLength(expectedHeadingsCount);
+  expect(headings).toHaveLength(headingsCount);
 });
 
 test('should display multiple holidays when more than one match is returned ', async () => {
   render(<App />);
 
-  const expectedHeadingsCount = 13;
+  const headingsCount = 13;
   const search = await screen.findByRole('textbox', {
     name: /enter holiday name/i,
   });
@@ -55,5 +55,5 @@ test('should display multiple holidays when more than one match is returned ', a
   userEvent.click(button);
   const headings = await screen.findAllByRole('heading');
 
-  expect(headings).toHaveLength(expectedHeadingsCount);
+  expect(headings).toHaveLength(headingsCount);
 });
